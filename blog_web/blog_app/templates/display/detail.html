@@ -1,0 +1,21 @@
+{% extends 'display/base1.html' %}
+
+{% block content %}
+
+<div class="container"><br><br>
+  <h2 class="text-center">Read the Full Blog!</h2><br><br>
+
+  <div class="card mb-5 shadow">
+    <img src="{{x.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{x.title}}</h5>
+      <p class="card-text">{{x.content}}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Posted By # {{x.author}} | {{x.date}}</small>
+    </div>
+  </div>
+
+</div><br><br>
+
+{% endblock content %}

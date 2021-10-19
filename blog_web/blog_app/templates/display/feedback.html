@@ -1,0 +1,15 @@
+{% extends 'display/base1.html' %}
+
+{% block content %}
+
+<div class="container" xmlns="http://www.w3.org/1999/html"><br><br>
+    <form action="" method="POST" class="text-center shadow">
+        <h1 class="text-center">Feedback Form</h1><br>
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success" value="Submit">
+    </form><br><br>
+</div>
+
+{% endblock content %}

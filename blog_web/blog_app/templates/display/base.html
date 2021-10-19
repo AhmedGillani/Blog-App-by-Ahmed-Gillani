@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog App</title>
+
+    <link rel="stylesheet" href="{% static 'libraries/cs/bootstrap.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-dark p-4 shadow">
+  <div class="container-fluid">
+    <a href="{% url 'login' %}" class="navbar-brand text-white">Blog App</a>
+    <center>
+      <a href="{% url 'login' %}" class="btn btn-outline-success" type="submit">Login</a>
+      <a href="{% url 'register' %}" class="btn btn-outline-info" type="submit">Register</a>
+    </center>
+  </div>
+</nav>
+
+   {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <span {% if message.tags %} class="{{ message.tags }}"{% endif %}></span>
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong>Message: </strong>{{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+{% block content %} {% endblock content %}
+
+<footer class="bg-dark p-3 shadow">
+    <p class="text-center text-white">© 2021 Blog App | By Ahmed Gillani | Danload for Study use only!</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="{% static 'libraries/js/jquery.js' %}"></script>
+<script src="{% static 'libraries/js/popper.js' %}"></script>
+<script src="{% static 'libraries/js/bootstrap.js' %}"></script>
+
+
+</body>
+</html>

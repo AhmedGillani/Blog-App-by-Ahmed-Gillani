@@ -1,0 +1,16 @@
+{% extends 'display/base.html' %}
+
+{% block content %}
+
+<div class="container"><br><br>
+    <form action="" method="POST" class="text-center shadow">
+        <h1 class="text-center">Login</h1><br><br>
+        {% csrf_token %}
+        {% for fm in form %}
+        {{ fm.label_tag }} {{ fm }}<br><br> {{ fm.errors|striptags }}
+        {% endfor %}
+        <input type="submit" class="btn btn-success" value="Login"><br><br>
+    </form>
+</div><br><br><br><br><br><br><br><br>
+
+{% endblock content %}

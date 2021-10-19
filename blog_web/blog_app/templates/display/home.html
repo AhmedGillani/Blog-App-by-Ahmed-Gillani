@@ -1,0 +1,28 @@
+{% extends 'display/base1.html' %}
+
+{% block content %}
+
+<div class="container"><br><br>
+    <h2 class="text-center">Read the Best Blogs in Town (For Registered User's Only!)</h2><br><br>
+    {% for x in blog %}
+    <div class="card mb-4 shadow" style="max-width: 100%;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{x.image.url}}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{x.title}}</h5>
+                    <p class="card-text">{{x.content|truncatechars:200}}</p>
+                    <a href="{% url 'detail' x.id %}" class="btn btn-outline-primary btn-sm">Read The Blog!</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Posted By # {{x.author}} | {{x.date}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div><br><br>
+
+{% endblock content %}
